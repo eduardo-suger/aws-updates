@@ -1,3 +1,12 @@
+import os
+
+email_user = os.getenv("EMAIL_USER")
+email_pass = os.getenv("EMAIL_PASS")
+
+print(f"✅ EMAIL_USER: {email_user}")
+print(f"✅ EMAIL_PASS: {'OK' if email_pass else 'ERRO! Variável não encontrada'}")
+
+
 import feedparser
 import smtplib
 from email.mime.multipart import MIMEMultipart
