@@ -1,6 +1,6 @@
 import feedparser
 
-rss_url = "https://aws.amazon.com/new/feed/"
+rss_url = "rss_url = "https://news.google.com/rss"
 feed = feedparser.parse(rss_url)
 
 print("🚀 Últimas atualizações da AWS:\n")
