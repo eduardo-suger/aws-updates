@@ -1,8 +1,8 @@
-name: "🚀 AWS Updates + Email"
+name: "🚀 AWS Updates + Save JSON in GitHub"
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # Roda todos os dias às 6h UTC (3h no Brasil)
+    - cron: "0 6 * * *"  # Roda todos os dias às 6h UTC
   workflow_dispatch:  # Permite rodar manualmente pelo GitHub
 
 jobs:
@@ -20,5 +20,13 @@ jobs:
       - name: 📦 Instalar Dependências
         run: pip install feedparser
 
-      - name: 🔍 Coletar Atualizações e Enviar E-mail
+      - name: 🔍 Coletar Atualizações e Criar Arquivo JSON
         run: python aws_updates.py
+
+      - name: 📂 Commit e Push das Atualizações
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git add updates.json
+          git commit -m "📌 Atualização automática do arquivo updates.json"
+          git push
