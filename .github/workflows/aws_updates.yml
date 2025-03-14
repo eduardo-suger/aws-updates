@@ -1,4 +1,4 @@
-name: "🚀 AWS Updates"
+name: "🚀 AWS Updates + Email"
 
 on:
   schedule:
@@ -20,5 +20,5 @@ jobs:
       - name: 📦 Instalar Dependências
         run: pip install feedparser
 
-      - name: 🔍 Coletar Atualizações da AWS
+      - name: 🔍 Coletar Atualizações e Enviar E-mail
         run: python aws_updates.py
