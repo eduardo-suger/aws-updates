@@ -1,0 +1,24 @@
+name: "🚀 AWS Updates"
+
+on:
+  schedule:
+    - cron: "0 6 * * *"  # Roda todos os dias às 6h UTC (3h no Brasil)
+  workflow_dispatch:  # Permite rodar manualmente pelo GitHub
+
+jobs:
+  fetch-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Clonar o repositório
+        uses: actions/checkout@v3
+
+      - name: 🏗️ Configurar Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: 📦 Instalar Dependências
+        run: pip install feedparser
+
+      - name: 🔍 Coletar Atualizações da AWS
+        run: python aws_updates.py
