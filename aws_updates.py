@@ -12,8 +12,8 @@ updates = {
     "updates": []
 }
 
-# Adicionar as 5 últimas atualizações ao JSON
-for entry in feed.entries[:5]:
+# Adicionar as 15 últimas atualizações ao JSON
+for entry in feed.entries[:15]:
     updates["updates"].append({
         "title": entry.title,
         "summary": entry.summary,
